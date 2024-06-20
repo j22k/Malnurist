@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malnutrition Prediction</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h3 style="color: aliceblue;">Malnutrition</h3>
+        <li><a tyle="color: aliceblue;" href="{{ url_for('Show') }}">Show Datas</a></li>
+      </nav>
+      
+    <div class="container mt-5">
+        <form method="POST" action="/find" class="form">
+            <div class="form-group row">
+                <!-- First Pair: Country Short Name and Year period -->
+                <label for="country" class="col-sm-2 col-form-label">Country Short Name:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="country" name="Country Short Name" required>
+                </div>
+            
+                <label for="yearPeriod" class="col-sm-2 col-form-label">Year Period:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="yearPeriod" name="Year Period" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <!-- First Pair: Country Short Name and Year period -->
+                <label for="country" class="col-sm-2 col-form-label">Median Year:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="country" name="Median Year" required>
+                </div>
+            
+                <label for="yearPeriod" class="col-sm-2 col-form-label">Start Month:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="yearPeriod" name="Start Month" required>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <!-- Third Pair: End Month and Age -->
+                <label for="endMonth" class="col-sm-2 col-form-label">End Month:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="endMonth" name="End Month" required>
+                </div>
+            
+                <label for="age" class="col-sm-2 col-form-label">Age:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="age" name="Age" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <!-- Fourth Pair: Sex and MUAC(IN) -->
+                <label for="sex" class="col-sm-2 col-form-label">Sex:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="sex" name="Sex" required>
+                </div>
+            
+                <label for="muac" class="col-sm-2 col-form-label">MUAC(IN):</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="muac" name="MUAC" required>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <!-- Fifth Pair: WHZ and Weight(kg) -->
+                <label for="whz" class="col-sm-2 col-form-label">WHZ:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="whz" name="WHZ" required>
+                </div>
+            
+                <label for="weight" class="col-sm-2 col-form-label">Weight(kg):</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="weight" name="Weight(k6)" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <!-- Sixth Pair: Height(in) and Head Circumference(cm) -->
+                <label for="height" class="col-sm-2 col-form-label">Height(in):</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="height" name="Height(in)" required>
+                </div>
+            
+                <label for="headCircumference" class="col-sm-2 col-form-label">Head Circumference(cm):</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="headCircumference" name="HeadCircumference(cm)" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <!-- Sixth Pair: Height(in) and Head Circumference(cm) -->
+                <label for="height" class="col-sm-2 col-form-label">Name:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="height" name="Name" required>
+                </div>
+            
+                <label for="headCircumference" class="col-sm-2 col-form-label">Father Name:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="headCircumference" name="Father Name" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <!-- Sixth Pair: Height(in) and Head Circumference(cm) -->
+                <label for="height" class="col-sm-2 col-form-label">Mother Name:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="height" name="Mother Name" required>
+                </div>
+            
+                <label for="headCircumference" class="col-sm-2 col-form-label">Ration Card No:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="headCircumference" name="Ration Card No" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <!-- Sixth Pair: Height(in) and Head Circumference(cm) -->
+                <label for="height" class="col-sm-2 col-form-label">Pincode:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="height" name="Pincode" required>
+                </div>
+            
+                <label for="headCircumference" class="col-sm-2 col-form-label">Health center No:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="headCircumference" name="Health center No" required>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Find</button>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
